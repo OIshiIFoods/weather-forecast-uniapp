@@ -1,0 +1,32 @@
+{
+  "extends": "@vue/tsconfig/tsconfig.json",
+  "compilerOptions": {
+    "ignoreDeprecations": "5.0",
+    "sourceMap": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    },
+    "lib": [
+      "esnext",
+      "dom"
+    ],
+    "types": [
+      // uniapp 小程序的类型声明文件
+      "@dcloudio/types",
+      "@uni-helper/uni-app-types",
+      // uni-ui 的类型声明文件
+      "@uni-helper/uni-ui-types",
+      // 微信小程序的类型声明文件
+      "@types/wechat-miniprogram"
+    ]
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue"
+  ]
+}
