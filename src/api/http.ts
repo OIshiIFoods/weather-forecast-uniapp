@@ -26,16 +26,12 @@ const httpInterceptor: UniApp.InterceptorOptions = {
 uni.addInterceptor("request", httpInterceptor)
 uni.addInterceptor("uploadFile", httpInterceptor)
 
-interface Data<T> {
-    data: T
-}
-
 export const http = <T>(options: UniApp.RequestOptions) => {
-    return new Promise<Data<T>>((resolve) => {
+    return new Promise<T>((resolve) => {
         uni.request({
             ...options,
             success(res) {
-                resolve(res.data as Data<T>)
+                resolve(res.data as T)
             },
             fail(res) {
                 return Promise.reject(res)
