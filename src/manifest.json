@@ -51,6 +51,14 @@
     /* 小程序特有相关 */
     "mp-weixin": {
         "appid": "wx4b50d5353dc382ee",
+        "packOptions": {
+            "include": [
+                {
+                    "type": "folder",
+                    "value": "components"
+                }
+            ]
+        },
         "setting": {
             "urlCheck": false
         },

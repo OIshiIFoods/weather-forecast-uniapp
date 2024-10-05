@@ -16,36 +16,7 @@
                 今天天气晴，夜晚晴，现在26°，空气一般
             </view>
             <ul class="other-info-list">
-                <li class="info-item">
-                    <text class="num">1级</text>
-                    <text class="info-desc">东风</text>
-                </li>
-                <li class="info-item">
-                    <text class="num">1级</text>
-                    <text class="info-desc">东风</text>
-                </li>
-                <li class="info-item">
-                    <text class="num">1级</text>
-                    <text class="info-desc">东风</text>
-                </li>
-                <li class="info-item">
-                    <text class="num">1级</text>
-                    <text class="info-desc">东风</text>
-                </li>
-                <li class="info-item">
-                    <text class="num">1级</text>
-                    <text class="info-desc">东风</text>
-                </li>
-                <li class="info-item">
-                    <text class="num">1级</text>
-                    <text class="info-desc">东风</text>
-                </li>
-                <li class="info-item">
-                    <text class="num">1级</text>
-                    <text class="info-desc">东风</text>
-                </li>
-
-                <li class="info-item">
+                <li class="info-item" v-for="i in 8" :key="i">
                     <text class="num">1级</text>
                     <text class="info-desc">东风</text>
                 </li>
@@ -55,12 +26,26 @@
 </template>
 
 <script setup lang="ts">
+import { getCurPosition } from '@/service/geoPosition';
+import { getCurWeatherInfo } from '@/service/weather';
+import { toRefs, onMounted, watch, reactive } from 'vue';
+
+const props = defineProps<{
+    posInfo: {
+        lat: number;
+        lng: number;
+    },
+}>()
+
+watch(props, async (newProps) => {
+    let data = await getCurWeatherInfo(newProps.posInfo)
+    console.log(data)
+})
 
 </script>
 
 <style lang="stylus" scoped>
 .weather-info
-    height 650rpx
     background linear-gradient(45deg,#f9f2f2, #fde5cb)
     border-radius 30rpx
     box-sizing border-box

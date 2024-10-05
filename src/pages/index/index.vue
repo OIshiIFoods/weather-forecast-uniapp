@@ -1,10 +1,10 @@
 <template>
-    <view class="weather" :style="{paddingTop:safeAreaInsets?.top+'px'}">
-        <WeatherInfo></WeatherInfo>
-        <HoursTem></HoursTem>
-        <DaysTem></DaysTem>
-        <AirQuality></AirQuality>
-        <LifeIndex></LifeIndex>
+    <view class="weather" :style="{ paddingTop: safeAreaInsets?.top + 'px' }">
+        <WeatherInfo :posInfo="posInfo"></WeatherInfo>
+        <HoursTem :posInfo="posInfo"></HoursTem>
+        <DaysTem :posInfo="posInfo"></DaysTem>
+        <AirQuality :posInfo="posInfo"></AirQuality>
+        <LifeIndex :posInfo="posInfo"></LifeIndex>
     </view>
 </template>
 
@@ -14,13 +14,19 @@ import HoursTem from './components/HoursTem.vue'
 import DaysTem from './components/DaysTem.vue'
 import AirQuality from './components/AirQuality.vue'
 import LifeIndex from './components/LifeIndex.vue'
+
 import { getCurPosition } from '@/service/geoPosition'
-import { getTodayWeatherInfo } from '@/service/weather'
-const {safeAreaInsets} = uni.getSystemInfoSync()
-getCurPosition().then(data=>{
-    console.log(data)
-    getTodayWeatherInfo(data.result.location).then(data => console.log(data))
+import { onMounted, reactive, ref, toRefs, type ToRefs } from 'vue'
+
+const { safeAreaInsets } = uni.getSystemInfoSync()
+
+let posInfo = ref({ lng: 116.41, lat: 39.92 })
+
+onMounted(async () => {
+    let data = await getCurPosition()
+    posInfo.value = data.result.location
 })
+
 </script>
 
 <style lang="stylus" scoped>
