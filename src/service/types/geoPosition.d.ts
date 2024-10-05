@@ -1,7 +1,7 @@
 export namespace Api {
     /** 获取当前地点 */
     export namespace GetCurPosition {
-        export type Request = any
+        export type Request = undefined
         export type Response = {
             /** 状态码，0为正常，其它为异常 */
             status: number
