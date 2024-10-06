@@ -12,6 +12,7 @@ declare namespace Api {
                 result: {
                     /** 用于定位的IP地址 */
                     ip: string
+                    /** 地理位置 */
                     location: {
                         /** 纬度 */
                         lat: number
