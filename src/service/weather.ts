@@ -1,12 +1,11 @@
 import { http } from "@/api/http"
-import { Api } from "./types/weather"
 
 const WEATHER_BASE_URL = import.meta.env.VITE_WEATHER_BASE_URL
 const WEATHER_SECRET_KEY = import.meta.env.VITE_WEATHER_SECRET_KEY
 
 /** 获取当前的天气信息 */
-export const getCurWeatherInfo = (params: Api.GetCurWeatherInfo.Request) => {
-    return http<Api.GetCurWeatherInfo.Response>({
+export const getCurWeatherInfo = (params: Api.Weather.GetCurWeatherInfo.Request) => {
+    return http<Api.Weather.GetCurWeatherInfo.Response>({
         url: WEATHER_BASE_URL + '/weather/now',
         method: 'GET',
         data: {
@@ -17,8 +16,8 @@ export const getCurWeatherInfo = (params: Api.GetCurWeatherInfo.Request) => {
 }
 
 /** 获取未来指定天数的天气信息 */
-export const getMultDayWeatherInfo = (params: Api.GetMultDayWeatherInfo.Request) => {
-    return http<Api.GetMultDayWeatherInfo.Response>({
+export const getMultDayWeatherInfo = (params: Api.Weather.GetMultDayWeatherInfo.Request) => {
+    return http<Api.Weather.GetMultDayWeatherInfo.Response>({
         url: WEATHER_BASE_URL + `/weather/${params.days}d`,
         method: 'GET',
         data: {
@@ -29,8 +28,8 @@ export const getMultDayWeatherInfo = (params: Api.GetMultDayWeatherInfo.Request)
 }
 
 /** 获取未来数小时的天气信息*/
-export const getHourlyWeatherInfo = (params: Api.GetHourlyWeatherInfo.Request) => {
-    return http<Api.GetHourlyWeatherInfo.Response>({
+export const getHourlyWeatherInfo = (params: Api.Weather.GetHourlyWeatherInfo.Request) => {
+    return http<Api.Weather.GetHourlyWeatherInfo.Response>({
         url: WEATHER_BASE_URL + `/weather/${params.hours}h`,
         method: 'GET',
         data: {
@@ -41,8 +40,8 @@ export const getHourlyWeatherInfo = (params: Api.GetHourlyWeatherInfo.Request) =
 }
 
 /** 获取指定天数生活指数 */
-export const getLifeIndex = (params: Api.GetLifeIndex.Request) => {
-    return http<Api.GetLifeIndex.Response>({
+export const getLifeIndex = (params: Api.Weather.GetLifeIndex.Request) => {
+    return http<Api.Weather.GetLifeIndex.Response>({
         url: WEATHER_BASE_URL + `/indices/${params.days}d`,
         data: {
             key: WEATHER_SECRET_KEY,
@@ -53,8 +52,8 @@ export const getLifeIndex = (params: Api.GetLifeIndex.Request) => {
 }
 
 /** 获取当前空气质量 */
-export const getCurAirQuality = (params: Api.GetCurAirQuality.Request) => {
-    return http<Api.GetCurAirQuality.Response>({
+export const getCurAirQuality = (params: Api.Weather.GetCurAirQuality.Request) => {
+    return http<Api.Weather.GetCurAirQuality.Response>({
         url: WEATHER_BASE_URL + `/air/now`,
         data: {
             key: WEATHER_SECRET_KEY,
@@ -64,8 +63,8 @@ export const getCurAirQuality = (params: Api.GetCurAirQuality.Request) => {
 }
 
 /** 获取未来5天的空气质量 */
-export const getMultDayAirQuality = (params: Api.GetMultDayAirQuality.Request) => {
-    return http<Api.GetMultDayAirQuality.Response>({
+export const getMultDayAirQuality = (params: Api.Weather.GetMultDayAirQuality.Request) => {
+    return http<Api.Weather.GetMultDayAirQuality.Response>({
         url: WEATHER_BASE_URL + `/air/5d`,
         data: {
             key: WEATHER_SECRET_KEY,

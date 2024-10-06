@@ -1,12 +1,11 @@
 import { http } from "@/api/http"
-import { Api } from "@/service/types/geoPosition"
 
 const GEO_BASE_URL = import.meta.env.VITE_GEO_BASE_URL
 const GEO_SECRET_KEY = import.meta.env.VITE_GEO_SECRET_KEY
 
 /** 获取当前位置信息 */
-export const getCurPosition = (params?: Api.GetCurPosition.Request) => {
-    return http<Api.GetCurPosition.Response>({
+export const getCurPosition = (params?: Api.GeoPosition.GetCurPosition.Request) => {
+    return http<Api.GeoPosition.GetCurPosition.Response>({
         url: GEO_BASE_URL + '/ws/location/v1/ip',
         method: 'GET',
         data: {
@@ -16,8 +15,8 @@ export const getCurPosition = (params?: Api.GetCurPosition.Request) => {
 }
 
 /** 搜索地点 */
-export const searchPosition = (params: Api.SearchPosition.Request) => {
-    return http<Api.SearchPosition.Response>({
+export const searchPosition = (params: Api.GeoPosition.SearchPosition.Request) => {
+    return http<Api.GeoPosition.SearchPosition.Response>({
         url: GEO_BASE_URL + '/ws/place/v1/search',
         method: 'GET',
         data: JSON.parse(JSON.stringify({
