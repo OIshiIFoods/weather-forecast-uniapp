@@ -19,13 +19,20 @@ import WeatherSubColumn from '@/components/WeatherSubColumn/WeatherSubColumn.vue
 import Progress from '@/components/Progress/Progress.vue';
 </script>
 
-<style lang="stylus" scoped>
-.air-wrap
-    width 80%
-    margin 0 auto
-    .air-state
-        line-height 30px
-    .desc
-        font-size 12px
-        line-height 12px
+<style lang="less" scoped>
+.air-wrap {
+    width: 80%;
+    margin: 0 auto;
+
+    .air-state {
+        line-height: 30px;
+
+    }
+
+    .desc {
+        font-size: 12px;
+        line-height: 12px;
+
+    }
+}
 </style>

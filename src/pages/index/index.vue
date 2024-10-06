@@ -29,9 +29,11 @@ onMounted(async () => {
 
 </script>
 
-<style lang="stylus" scoped>
+<style lang="less" scoped>
 @import '../../static/css/variable';
-.weather
-    box-sizing border-box
-    padding 0 side-distance
+
+.weather {
+    box-sizing: border-box;
+    padding: 0 @side-distance;
+}
 </style>

@@ -15,15 +15,19 @@ import WeatherSubColumn from '@/components/WeatherSubColumn/WeatherSubColumn.vue
 import Progress from '@/components/Progress/Progress.vue';
 </script>
 
-<style lang="stylus" scoped>
-.tem-item
-    display flex
-    justify-content space-between
-    align-items center
-    margin 5px 0px
-    .weather-icon
-        font-size 30px
-    .tem-echart
-        width 300rpx
-        height 80rpx
+<style lang="less" scoped>
+.tem-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px 0;
+
+    .weather-icon {
+        font-size: 30px;
+    }
+
+    .tem-echart {
+        width: 300rpx;
+    }
+}
 </style>

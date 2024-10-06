@@ -17,16 +17,22 @@ import WeatherSubColumn from '@/components/WeatherSubColumn/WeatherSubColumn.vue
 
 </script>
 
-<style lang="stylus" scoped>
-.tem-list
-    display flex
-    .tem-item
-        display flex
-        flex-direction column
-        align-items center
-        font-size 12px
-        margin-right 26px
-        .weather-icon
-            font-size 30px
-            padding 3px 0
+<style lang="less" scoped>
+.tem-list {
+    display: flex;
+
+    .tem-item {
+        flex-direction: column;
+        align-items: center;
+        font-size: 12px;
+        margin-right: 26px;
+
+        .weather-icon {
+            font-size: 30px;
+            padding: 3px 0;
+        }
+
+    }
+
+}
 </style>
