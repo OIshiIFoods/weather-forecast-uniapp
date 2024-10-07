@@ -1,30 +1,30 @@
 <template>
     <view class="weather" :style="{ paddingTop: safeAreaInsets?.top + 'px' }">
-        <WeatherInfo :posInfo="posInfo"></WeatherInfo>
-        <HoursTem :posInfo="posInfo"></HoursTem>
-        <DaysTem :posInfo="posInfo"></DaysTem>
-        <AirQuality :posInfo="posInfo"></AirQuality>
-        <LifeIndex :posInfo="posInfo"></LifeIndex>
+        <WeatherInfo></WeatherInfo>
+        <HoursTem></HoursTem>
+        <DaysTem></DaysTem>
+        <AirQuality></AirQuality>
+        <LifeIndex></LifeIndex>
     </view>
 </template>
 
 <script setup lang="ts">
+import { onMounted, reactive, ref, toRefs, type ToRefs } from 'vue'
 import WeatherInfo from './components/WeatherInfo.vue'
 import HoursTem from './components/HoursTem.vue'
 import DaysTem from './components/DaysTem.vue'
 import AirQuality from './components/AirQuality.vue'
 import LifeIndex from './components/LifeIndex.vue'
-
+import { usePositionStore } from '@/stores/modules/position'
 import { getCurPosition } from '@/service/geoPosition'
-import { onMounted, reactive, ref, toRefs, type ToRefs } from 'vue'
 
 const { safeAreaInsets } = uni.getSystemInfoSync()
+const positionStore = usePositionStore()
 
-let posInfo = ref({ lng: 116.41, lat: 39.92 })
 
 onMounted(async () => {
     let data = await getCurPosition()
-    posInfo.value = data.result.location
+    positionStore.changePositionInfo(data.result)
 })
 
 </script>
