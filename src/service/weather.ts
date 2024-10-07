@@ -1,7 +1,7 @@
 import { http } from "@/api/http"
 
-const WEATHER_BASE_URL = import.meta.env.VITE_WEATHER_BASE_URL
-const WEATHER_SECRET_KEY = import.meta.env.VITE_WEATHER_SECRET_KEY
+const WEATHER_BASE_URL = process.env.WEATHER_BASE_URL
+const WEATHER_SECRET_KEY = process.env.WEATHER_SECRET_KEY
 
 /** 获取当前的天气信息 */
 export const getCurWeatherInfo = (params: Api.Weather.GetCurWeatherInfo.Request) => {

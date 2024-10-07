@@ -1,7 +1,7 @@
 import { http } from "@/api/http"
 
-const GEO_BASE_URL = import.meta.env.VITE_GEO_BASE_URL
-const GEO_SECRET_KEY = import.meta.env.VITE_GEO_SECRET_KEY
+const GEO_BASE_URL = process.env.GEO_BASE_URL
+const GEO_SECRET_KEY = process.env.GEO_SECRET_KEY
 
 /** 获取当前位置信息 */
 export const getCurPosition = (params?: Api.GeoPosition.GetCurPosition.Request) => {
