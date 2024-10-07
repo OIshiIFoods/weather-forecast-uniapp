@@ -90,7 +90,8 @@
           "WEATHER_BASE_URL": "https://devapi.qweather.com/v7",
           "WEATHER_SECRET_KEY": "7befc623e53d45e4803f3da36551cd5e",
           "GEO_BASE_URL": "https://apis.map.qq.com",
-          "GEO_SECRET_KEY": "LE5BZ-3I533-XXK3G-OAQBZ-QQTIF-QIFQB"
+          "GEO_SECRET_KEY": "LE5BZ-3I533-XXK3G-OAQBZ-QQTIF-QIFQB",
+          "Weather_IMG_BASE_URL": "http://127.0.0.1:3000/images/weather"
         }
       }
     }

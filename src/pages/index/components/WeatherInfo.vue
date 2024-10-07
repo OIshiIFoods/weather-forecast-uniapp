@@ -6,7 +6,7 @@
         </view>
         <view class="wrap">
             <view class="main-info">
-                <i class="weather-icon qi-100-fill"></i>
+                <img class="weather-icon" :src="weatherIconUrl.baseUrl + weatherIconUrl.fileName + '.png'" />
                 <view class="tem-and-state">
                     <text class="tem">26°</text>
                     <text class="state">晴</text>
@@ -28,7 +28,7 @@
 <script setup lang="ts">
 import { getCurPosition } from '@/service/geoPosition';
 import { getCurWeatherInfo } from '@/service/weather';
-import { toRefs, onMounted, watch, reactive } from 'vue';
+import { toRefs, onMounted, watch, reactive, ref } from 'vue';
 
 const props = defineProps<{
     posInfo: {
@@ -37,9 +37,15 @@ const props = defineProps<{
     },
 }>()
 
+const weatherIconUrl = ref({
+    baseUrl: process.env.Weather_IMG_BASE_URL + '/',
+    fileName: '100'
+})
+
 watch(props, async (newProps) => {
     let data = await getCurWeatherInfo(newProps.posInfo)
-    console.log(data)
+    weatherIconUrl.value.fileName = data.now.icon
+    console.log('icon', data.now.icon)
 })
 
 </script>
@@ -67,7 +73,8 @@ watch(props, async (newProps) => {
             align-items: center;
 
             .weather-icon {
-                font-size: 56px;
+                width: 100px;
+                height: 100px;
             }
 
             .tem-and-state {
@@ -80,10 +87,6 @@ watch(props, async (newProps) => {
                     font-weight: 700;
                 }
             }
-
-
-
-
         }
 
         .weather-desc {
