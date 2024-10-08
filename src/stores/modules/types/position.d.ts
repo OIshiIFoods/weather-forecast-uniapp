@@ -1,5 +1,5 @@
-export namespace State {
-    type PositionInfo = {
+export type State = {
+    positionInfo: {
         /** 用于定位的IP地址 */
         ip?: string
         /** 位置信息 */
