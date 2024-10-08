@@ -1,5 +1,6 @@
 <template>
-    <WeatherSubColumn :title="`当前天气${hourlyWeatherInfo[0]?.text ?? '晴'}，风速最高${hourlyWeatherInfo[0]?.windSpeed ?? 0}米/秒`">
+    <WeatherSubColumn
+        :title="`当前天气${hourlyWeatherInfo[0]?.text ?? '晴'}，风速最高${hourlyWeatherInfo[0]?.windSpeed ?? 0}米/秒`">
         <scroll-view scroll-x>
             <ul class="tem-list">
                 <li class="tem-item" v-for="(value, idx) in hourlyWeatherInfo" :key="value.fxTime">

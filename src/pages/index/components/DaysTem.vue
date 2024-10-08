@@ -4,11 +4,11 @@
             <li class="weather-item" v-for="(value, idx) in hourlyWeatherInfo" :key="value.fxDate">
                 <text class="time">{{ numMap[new Date(value.fxDate).getDay()] }}</text>
                 <img class="weather-icon" :src="Weather_IMG_BASE_URL + '/' + value.iconDay + '.png'" />
-                <div class="temp">
+                <view class="temp">
                     <span>{{ value.tempMin + '°' }}</span>
                     <Progress width="200rpx" height="20rpx" class="temp-progress"></Progress>
                     <span>{{ value.tempMax + '°' }}</span>
-                </div>
+                </view>
             </li>
         </ul>
     </WeatherSubColumn>
