@@ -15,16 +15,18 @@ const props = withDefaults(defineProps<{ title?: string }>(), {
 })
 </script>
 
-<style lang="stylus" scoped>
-.weather-sub-column
-  margin-top 10px
-  border-radius 8px
-  box-sizing border-box
-  padding 6px 15px 30px
-  background-color rgb(247, 247, 247)
-  .title
-      font-size 12px
-      line-height 29px
-      padding-bottom 5px
+<style lang="less" scoped>
+.weather-sub-column {
+  margin-top: 10px;
+  border-radius: 8px;
+  box-sizing: border-box;
+  padding: 6px 15px 20px;
+  background-color: rgb(247, 247, 247);
 
+  .title {
+    font-size: 12px;
+    line-height: 29px;
+    padding-bottom: 5px;
+  }
+}
 </style>
