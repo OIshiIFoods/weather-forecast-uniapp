@@ -7,7 +7,8 @@
             <view class="info-list">
                 <view class="info-item" v-for="value in airInfoList">
                     <span class="title">{{ value.name }}</span>
-                    <Progress width="200rpx" height="20rpx" class="progress" />
+                    <Progress class="progress" :colors="['#95b359']" :max-value="150" :cur-value="+value.value"
+                        width="200rpx" height="20rpx" />
                     <span class="num">{{ value.value }}</span>
                 </view>
             </view>
