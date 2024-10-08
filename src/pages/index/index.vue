@@ -23,7 +23,8 @@ const positionStore = usePositionStore()
 
 
 onMounted(async () => {
-    let data = await getCurPosition()
+    const data = await getCurPosition()
+    /** 更新仓库中的位置信息 */
     positionStore.changePositionInfo(data.result)
 })
 
