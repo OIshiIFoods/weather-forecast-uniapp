@@ -6,8 +6,7 @@
         </view>
         <view class="wrap">
             <view class="main-info">
-                <img class="weather-icon"
-                    :src="weatherInfo.weatherIconUrl.baseUrl + weatherInfo.weatherIconUrl.fileName + '.png'" />
+                <img class="weather-icon" :src="Weather_IMG_BASE_URL + '/' + weatherInfo.weatherIconName + '.png'" />
                 <view class="tem-and-state">
                     <text class="tem">{{ weatherInfo.temp + '°' }}</text>
                     <text class="state">{{ weatherInfo.weatherState }}</text>
@@ -33,6 +32,9 @@ import { watch, ref } from 'vue';
 const positionStore = usePositionStore()
 const { positionInfo } = storeToRefs(positionStore)
 
+/** 天气图标BASE_URL */
+const Weather_IMG_BASE_URL = process.env.Weather_IMG_BASE_URL
+
 /** 天气信息 */
 const weatherInfo = ref({
     /** 温度 */
@@ -44,11 +46,9 @@ const weatherInfo = ref({
         province: '辽宁省',
         city: '沈阳市'
     },
-    /** 天气图标链接 */
-    weatherIconUrl: {
-        baseUrl: process.env.Weather_IMG_BASE_URL + '/',
-        fileName: '100'
-    },
+    /** 天气图标名称 */
+    weatherIconName: '100',
+    /** 天气其他信息 */
     otherInfoList: new Array(8) as { value: number | string, desc: string }[]
 })
 
@@ -70,10 +70,7 @@ watch(positionInfo, async (newProps) => {
             province: positionInfo.value.ad_info.province,
             city: positionInfo.value.ad_info.city ?? ''
         },
-        weatherIconUrl: {
-            baseUrl: process.env.Weather_IMG_BASE_URL + '/',
-            fileName: curWeatherInfo.icon
-        },
+        weatherIconName: curWeatherInfo.icon,
         otherInfoList: [
             {
                 value: curWeatherInfo.windScale + '级',
