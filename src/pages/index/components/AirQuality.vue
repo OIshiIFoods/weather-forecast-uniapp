@@ -5,7 +5,7 @@
                 {{ curAirInfo?.aqi + '-' + curAirInfo?.category }}
             </view>
             <view class="info-list">
-                <view class="info-item" v-for="value in airInfoList">
+                <view class="info-item" v-for="value in airInfoList" :key="value.name">
                     <span class="title">{{ value.name }}</span>
                     <Progress class="progress" :colors="['#95b359']" :max-value="150" :cur-value="+value.value"
                         width="200rpx" height="20rpx" />
