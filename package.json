@@ -96,7 +96,7 @@
           "WEATHER_SECRET_KEY": "7befc623e53d45e4803f3da36551cd5e",
           "GEO_BASE_URL": "https://apis.map.qq.com",
           "GEO_SECRET_KEY": "LE5BZ-3I533-XXK3G-OAQBZ-QQTIF-QIFQB",
-          "Weather_IMG_BASE_URL": "http://127.0.0.1:3000/images/weather"
+          "Weather_IMG_BASE_URL": "http://127.0.0.1:3001/images/weather"
         }
       },
       "dev": {
@@ -107,7 +107,7 @@
           "WEATHER_SECRET_KEY": "7befc623e53d45e4803f3da36551cd5e",
           "GEO_BASE_URL": "https://apis.map.qq.com",
           "GEO_SECRET_KEY": "LE5BZ-3I533-XXK3G-OAQBZ-QQTIF-QIFQB",
-          "Weather_IMG_BASE_URL": "http://10.63.39.102:3000/images/weather"
+          "Weather_IMG_BASE_URL": "http://120.27.137.56:3001/images/weather"
         }
       }
     }
